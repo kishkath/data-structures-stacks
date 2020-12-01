@@ -1,0 +1,76 @@
+'''(practice from codebasics)
+class stack():
+    
+    def __init__(self):
+        self.items=[]
+        
+    def push(self,data):
+        self.items.append(data)
+    
+    def pop(self):
+        return self.items.pop()
+    
+    def size(self):
+        return len(self.items)
+    
+    def show(self):
+        return self.items 
+        
+s=stack()
+string=input()
+print(s.show())
+new_string=''
+for c in string:
+    s.push(c)
+for d in string:
+    new_string+=s.pop()
+print(new_string)
+print(s.show())
+'''
+
+
+
+
+'''
+
+class stack():
+    
+    def __init__(self):
+        self.items=[]
+        
+    def push(self,data):
+        self.items.append(data)
+        
+    def pop(self):
+        return self.items.pop()
+        
+    def size(self):
+        return len(self.items)
+        
+    def show(self):
+        return self.items
+        
+
+
+def match(c,d):
+    matched={')':'(',
+    ']':'[',
+    '}':'{'
+    } 
+    return matched[c]==d
+s=stack()
+def balance(string):
+
+    for ch in string:
+        if ch=='(' or ch=='[' or ch=='{':
+            s.push(ch)
+        
+        if ch==')' or ch==']' or ch=='}':
+            if s.size()==0 :
+                return False 
+            if not match(ch,s.pop()):
+                return False
+    return s.size()==0 
+string='(()'
+print(balance(string))
+'''
